@@ -1,4 +1,6 @@
 ﻿@ModelType ProductCustomerManagement.Customer
+<!-- Customer/Details.vbhtml -->
+
 @Code
     ' Set the title of the page to "Details"
     ViewData("Title") = "Details"
@@ -40,7 +42,10 @@ End Code
     </dl>
 </div>
 @* Action links for editing the current customer or returning to the list of customers*@
-<p>
-    @Html.ActionLink("Edit", "Edit", New With {.id = Model.CustomerID}) |
-    @Html.ActionLink("Back to List", "Index")
+<p>  
+    <!-- Updated Edit button and Back to List link with appropriate styling and alignment -->
+    <div class="form-actions no-color d-flex justify-content-start mt-3">
+        <a href="@Url.Action("Edit", New With {.id = Model.CustomerID})" class="btn btn-primary">Edit</a>
+        <a href="@Url.Action("Index")" class="btn btn-secondary custom-btn-space">Back</a>
+    </div>
 </p>

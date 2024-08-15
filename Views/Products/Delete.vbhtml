@@ -1,4 +1,6 @@
 ﻿@ModelType ProductCustomerManagement.Product
+<!-- Product/Delete.vbhtml -->
+
 @Code
     ViewData("Title") = "Delete"
 End Code
@@ -54,9 +56,10 @@ End Code
     @Using (Html.BeginForm())
         @Html.AntiForgeryToken()
 
-        @<div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        @*Updated Delete button And Back to List link with appropriate styling And alignment*@
+        @<div Class="form-actions no-color d-flex justify-content-start mt-3">
+            <input type = "submit" value="Delete" Class="btn btn-danger" />
+            <a href = "@Url.Action("Index", "Products")" Class="btn btn-secondary custom-btn-space">Back</a>
         </div>
     End Using
 </div>

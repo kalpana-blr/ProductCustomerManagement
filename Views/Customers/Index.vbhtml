@@ -1,14 +1,11 @@
 ﻿@ModelType IEnumerable(Of ProductCustomerManagement.Customer)
+<!--Customers/Index.vbhtml -->
+
 @Code
-    'ViewData("Title") = "Index"
     ViewData("Title") = "Customers"
 End Code
 
-@*<h2>Index</h2>*@
 <h2>Customers</h2>
-<p>
-    @Html.ActionLink("New Customer", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -20,7 +17,7 @@ End Code
         <th>
             @Html.DisplayNameFor(Function(model) model.RegistrationDate)
         </th>
-        <th></th>
+        <th class="actions-column"></th>
     </tr>
 
     @For Each item In Model
@@ -34,12 +31,8 @@ End Code
             <td>
                 @Html.DisplayFor(Function(modelItem) item.RegistrationDate)
             </td>
-            <td>
-                @*@Html.ActionLink("Edit", "Edit", New With {.id = item.CustomerID}) |
-                @Html.ActionLink("Details", "Details", New With {.id = item.CustomerID}) |
-                @Html.ActionLink("Delete", "Delete", New With {.id = item.CustomerID})*@
-
-                <!-- Replaced Html.ActionLink with Url.Action to replace the Text Links with Font Awesome icons Edit, Delete and Details  -->
+            <td class="actions-column">
+                <!-- Replaced Html.ActionLink with Url.Action to replace the action Text Links with Font Awesome icons Edit, Details and Delete -->
                 <a href="@Url.Action("Edit", "Customers", New With {.id = item.CustomerID})" class="icon-link" title="Edit Customer" aria-label="Edit">
                     <i class="fas fa-edit text-primary fa-lg" aria-hidden="true"></i>
                     <span class="sr-only">Edit</span>
@@ -52,9 +45,14 @@ End Code
                     <i class="fas fa-trash-alt text-danger fa-lg" aria-hidden="true"></i>
                     <span class="sr-only">Delete</span>
                 </a>
-
             </td>
         </tr>
     Next
-
 </table>
+
+<!--  New Customer button  -->
+<div class="d-flex justify-content-end mb-3">
+    <a href="@Url.Action("Create", "Customers")" class="btn btn-success" title="New Customer" aria-label="New Customer">
+        <i class="fas fa-user-plus"></i> New Customer
+    </a>
+</div>

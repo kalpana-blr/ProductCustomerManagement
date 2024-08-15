@@ -41,5 +41,15 @@ a.icon-link {
 
 /* Add spacing between the icons */
 a.icon-link {
-    margin-right: 10px; /* Adjust the margin value as needed */
+    margin-right: 10px; 
+}
+
+/* Adjust the width of the Action (right most) column of Product & Customer Index page */
+.actions-column {
+    width: 140px; 
+}
+
+/* Adjust the spacing between horizontal buttons (for example space between Save and Back buttons)  */
+.custom-btn-space {
+    margin-left: 20px;
 }

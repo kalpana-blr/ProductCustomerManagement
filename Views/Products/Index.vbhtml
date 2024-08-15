@@ -1,14 +1,12 @@
 ﻿@ModelType IEnumerable(Of ProductCustomerManagement.Product)
+<!-- Products/Index.vbhtml -->
+
 @Code
-    'ViewData("Title") = "Index"
     ViewData("Title") = "Products"
 End Code
 
-@*<h2>Index</h2>*@
 <h2>Products</h2>
-<p>
-    @Html.ActionLink("New Product", "Create")
-</p>
+<!-- Products Table -->
 <table class="table">
     <tr>
         <th>
@@ -26,7 +24,7 @@ End Code
         <th>
             @Html.DisplayNameFor(Function(model) model.LaunchDate)
         </th>
-        <th></th>
+        <th class="actions-column"></th>
     </tr>
 
     @For Each item In Model
@@ -46,12 +44,8 @@ End Code
             <td>
                 @Html.DisplayFor(Function(modelItem) item.LaunchDate)
             </td>
-            <td>
-                @*@Html.ActionLink("Edit", "Edit", New With {.id = item.ProductID}) |
-        @Html.ActionLink("Details", "Details", New With {.id = item.ProductID}) |
-        @Html.ActionLink("Delete", "Delete", New With {.id = item.ProductID})*@
-
-                <!-- Replaced Html.ActionLink with Url.Action to replace the Text Links with Font Awesome icons Edit, Delete and Details  -->
+            <td class="actions-column">
+                <!-- Replaced Html.ActionLink with Url.Action to replace the action Text Links with Font Awesome icons Edit, Details and Delete  -->
                 <a href="@Url.Action("Edit", "Products", New With {.id = item.ProductID})" class="icon-link" title="Edit Product" aria-label="Edit">
                     <i class="fas fa-edit text-primary fa-lg" aria-hidden="true"></i>
                     <span class="sr-only">Edit</span>
@@ -69,3 +63,10 @@ End Code
     Next
 
 </table>
+
+<!-- New Product Button -->
+<div class="d-flex justify-content-end mb-3">
+    <a href="@Url.Action("Create", "Products")" class="btn btn-primary" title="New Product" aria-label="New Product">
+          <i class="fas fa-plus"></i> New Product
+    </a> 
+</div>
